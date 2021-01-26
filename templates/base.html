@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/css/app1.css">
+
+    <title>{% block title %} {% endblock %}</title>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/form">Greet v1</a>
+        <a href="/form-2">Greet v2</a>
+        <a href="/lucky">Lucky</a>
+        <a href="/howdy">Hello</a>
+        <br>
+    </nav>
+<br><br>
+
+
+    <br><br>
+    <main id="content">
+        <section class="messages">
+            <!-- ??? WHY ARE THE CATEGORIES/CSS NOT WORKING??? -->
+            {% for category, msg in get_flashed_messages(with_categories=true) %}
+            <p class="{{category}}">{{ msg }}</p>
+            {% endfor %}
+        </section>
+        
+        {% block content %}
+        {% endblock%}
+    </main>
+    <br><br><br>
+
+</body>
+</html>

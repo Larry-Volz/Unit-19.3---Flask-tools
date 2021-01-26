@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} All Movies {% endblock%}</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    
+    <h1>All Movies from Form</h1>
+    <ul>
+        {% for movie in movies%}
+            <li>{{ movie }}</li>
+         {% endfor %}
+    </ul>
+    
+    <form action="/movies/new" method="post">
+        <input type="text" placeholder="movie title" name="title">
+        <button>Submit</button>   
+    </form>
+
+    {% endblock %}
+</body>
+</html>
